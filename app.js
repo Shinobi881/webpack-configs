@@ -1,3 +1,4 @@
+import './stylesheet.css';
 import { TestClass, CodeElement } from './app2'; // Imports an ES6 Class
 const { testFunc } = require('./app3'); // We can use both 'require' and 'import'
 
