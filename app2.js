@@ -21,3 +21,13 @@ export class CodeElement {
     el.appendChild(this.element);
   }
 }
+
+export class ImageElement {
+  constructor() {
+    this.element = document.createElement('img');
+  }
+  appendImage(source, el) {
+    this.element.src = source;
+    el.appendChild(this.element);
+  }
+}
