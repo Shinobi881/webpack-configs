@@ -42,17 +42,106 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	// console.log('testing 123');
+	'use strict';
 
-	const root = document.getElementById('root');
+	var _app = __webpack_require__(1);
 
-	console.log(root);
+	// Imports an ES6 Class
 
-	const element = document.createElement('h1');
+	var _require = __webpack_require__(2);
+
+	var testFunc = _require.testFunc; // We can use both 'require' and 'import'
+
+	// Let's do some dom manipulations
+
+	var root = document.getElementById('root');
+	var element = document.createElement('h1');
+	var getModules = new _app.CodeElement();
+
+	var testStr = 'testing ';
+	var importStr = "import { TestClass, CodeElement } from './app2';";
+	var newTestClass = new _app.TestClass();
+
 	element.textContent = 'IS THIS THING ON?';
 	root.appendChild(element);
+	getModules.appendCode(importStr, root);
+
+	newTestClass.writeTest(0);
+	newTestClass.writeTest(1);
+
+	testFunc(testStr);
+
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var TestClass = exports.TestClass = function () {
+	  function TestClass() {
+	    _classCallCheck(this, TestClass);
+
+	    this.test1 = 'Testing this ES6 class - ';
+	    this.test2 = 'Do I need a transpiler for this?';
+	  }
+
+	  _createClass(TestClass, [{
+	    key: 'writeTest',
+	    value: function writeTest(num) {
+	      if (!num) {
+	        document.write(this.test1);
+	      } else {
+	        document.write(this.test2);
+	      }
+	    }
+	  }]);
+
+	  return TestClass;
+	}();
+
+	var CodeElement = exports.CodeElement = function () {
+	  function CodeElement() {
+	    _classCallCheck(this, CodeElement);
+
+	    this.element = document.createElement('code');
+	  }
+
+	  _createClass(CodeElement, [{
+	    key: 'appendCode',
+	    value: function appendCode(str, el) {
+	      this.element.textContent = str;
+	      el.appendChild(this.element);
+	    }
+	  }]);
+
+	  return CodeElement;
+	}();
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var testFunc = function testFunc(arg) {
+	  document.write(" - I'm a big fan of " + arg + "!");
+	  console.log(" - I'm a big fan of " + arg + "!");
+	};
+
+	exports.testFunc = testFunc;
 
 /***/ }
 /******/ ]);

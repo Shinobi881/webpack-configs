@@ -8,10 +8,6 @@ This is a bare-bones config, useful for just getting stuff on the page there are
 3. Open the `index.html` in a browser
 4. Everytime you make changes, you have to run `webpack`
 
-##The super basic setup:
-
-- Bundled code
-- CommonJS modules
-- ES5 
-- No styles (see: `bare-bones/style`) branch
-- No loaders
+##Branch and configs
+- Current: `bare-bones-es6`
+- Next: `bare-bones-style`
